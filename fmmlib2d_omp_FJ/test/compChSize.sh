@@ -18,8 +18,8 @@ do
 for ((COUNT=1; COUNT<=$NLOOP; COUNT++ ))
 do
 #  echo $CHUNK
-#  cmd="./examples/int2 $NSOURCE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE"
-#  $cmd
+  cmd="./examples/int2 $NSOURCE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE"
+  $cmd
   cmd="cp fort.13 $OUTDIR/output_${CHUNK}_${COUNT}"
   $cmd
 #  echo $cmd
