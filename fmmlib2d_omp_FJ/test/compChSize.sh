@@ -6,6 +6,7 @@ OUTDIR="test/output"
 NLOOP=2
 #echo $NSOURCE
 cd ..
+mkdir $OUTDIR
 
 #for P2T in 1 10 20
 #  for M2M in 1 10 20
@@ -17,8 +18,8 @@ do
 for ((COUNT=1; COUNT<=$NLOOP; COUNT++ ))
 do
 #  echo $CHUNK
-  cmd="./examples/int2 $NSOURCE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE"
-  $cmd
+#  cmd="./examples/int2 $NSOURCE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE"
+#  $cmd
   cmd="cp fort.13 $OUTDIR/output_${CHUNK}_${COUNT}"
   $cmd
 #  echo $cmd
