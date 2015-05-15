@@ -1,3 +1,13 @@
+ nsource = 
+  100000
+ CHUNK_SIZE_P2T = 
+       1
+ CHUNK_SIZE_M2M = 
+       1
+ CHUNK_SIZE_M2L = 
+       1
+ CHUNK_SIZE_P2M = 
+       1
  OMP_GET_MAX_THREADS = 
        4
  nsource=
@@ -7,27 +17,27 @@
  iprec=
        4
  time in d2tallbem=
-  0.41332E-01
+  0.37414E-01
  lused: ccenters(k)=
      478
  lused(k)=
      838
  time in d2tlsts=
-  0.26788E-01
+  0.27152E-01
  lused(k)=
     3272
  nboxes = 
    23948
  time in fmm main=
-  0.85958E+00
+  0.10578E+01
  nsource=
   100000
  ntarget=
   100000
  after fmm, time (sec)=
-  0.94416E+00
+  0.11381E+01
  after fmm, speed (points+targets/sec)=
-  0.21183E+06
+  0.17572E+06
  after fmm, pot=
   -.37673E+10  -.68796E+09  -.27137E+10  0.66269E+09  -.38636E+10  0.36247E+09
   -.49265E+10  0.13746E+09  -.41825E+10  0.26704E+09  -.35417E+10  0.70758E+09
@@ -39,9 +49,9 @@
   -.44061E+10  0.00000E+00  -.45694E+10  0.00000E+00  -.27322E+10  0.00000E+00
   -.42744E+10  0.00000E+00  -.37581E+10  0.00000E+00  -.35476E+10  0.00000E+00
  directly, estimated time (sec)=
-  0.24344E+03
+  0.25768E+03
  directly, estimated speed (points/sec)=
-  0.41078E+03
+  0.38807E+03
  relative L2 error in potential=
   0.10814E+00
  relative L2 error in re(potential)=
@@ -57,9 +67,9 @@
   0.60618E+10  0.00000E+00  0.60681E+10  0.00000E+00  0.59732E+10  0.00000E+00
   0.59184E+10  0.00000E+00  0.58914E+10  0.00000E+00  0.50298E+10  0.00000E+00
  directly, estimated time (sec)=
-  0.20611E+03
+  0.24693E+03
  directly, estimated speed (targets/sec)=
-  0.48519E+03
+  0.40497E+03
  relative L2 error in target potential=
   0.67920E-01
  relative L2 error in target re(potential)=
