@@ -10,3 +10,4 @@ chunk: compChSize.sh ../examples/int2
 
 clean: 
 	rm $(OUTDIR)/*
+	rm result.txt
