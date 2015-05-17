@@ -7,23 +7,44 @@ c     O(N^2) direct method
 c
 c
         implicit real *8 (a-h,o-z)
-        real *8 source(2,2 000 000)
-        complex *16 charge(2 000 000)
-        complex *16 dipstr(2 000 000)
-        real *8 dipvec(2,2 000 000)
-        complex *16 pot(2 000 000)
-        complex *16 grad(2,2 000 000)
-        complex *16 hess(3,2 000 000)
-c       
-        complex *16 pot2(2 000 000)
-        complex *16 grad2(2 000 000)
-        complex *16 hess2(2 000 000)
-c       
-        real *8 target(2,2 000 000)
-        complex *16 pottarg(2 000 000)
-        complex *16 gradtarg(2 000 000)
-        complex *16 hesstarg(2 000 000)
-c
+        integer ,parameter :: nsource_max_ = 20 000 000
+
+        real *8, ALLOCATABLE :: source(:,:)
+        complex *16, ALLOCATABLE :: charge(:)
+        complex *16, ALLOCATABLE :: dipstr(:)
+        real *8, ALLOCATABLE :: dipvec(:,:)
+        complex *16, ALLOCATABLE :: pot(:)
+        complex *16, ALLOCATABLE :: grad(:,:)
+        complex *16, ALLOCATABLE :: hess(:,:)
+
+        complex *16, ALLOCATABLE :: pot2(:)
+        complex *16, ALLOCATABLE :: grad2(:)
+        complex *16, ALLOCATABLE :: hess2(:)
+
+        real *8, ALLOCATABLE :: target(:,:)
+        complex *16, ALLOCATABLE :: pottarg(:)
+        complex *16, ALLOCATABLE :: gradtarg(:)
+        complex *16, ALLOCATABLE :: hesstarg(:)
+
+        integer AllocateStatus
+
+c        real *8 source(2,2 000 000)
+c        complex *16 charge(2 000 000)
+c        complex *16 dipstr(2 000 000)
+c        real *8 dipvec(2,2 000 000)
+c        complex *16 pot(2 000 000)
+c        complex *16 grad(2,2 000 000)
+c        complex *16 hess(3,2 000 000)
+cc       
+c        complex *16 pot2(2 000 000)
+c        complex *16 grad2(2 000 000)
+c        complex *16 hess2(2 000 000)
+cc       
+c        real *8 target(2,2 000 000)
+c        complex *16 pottarg(2 000 000)
+c        complex *16 gradtarg(2 000 000)
+c        complex *16 hesstarg(2 000 000)
+cc
         complex *16 ptemp,gtemp,htemp
 c       
         complex *16 ima
@@ -46,6 +67,67 @@ c       SET ALL PARAMETERS
 c        
         call prini(6,13)
 ccc        call prini(0,13)
+
+
+c     Allocate Array
+c
+      allocate(source(2,nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(charge(nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(dipstr(nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(dipvec(2,nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(pot(nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(grad(2,nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(hess(3,nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(pot2(nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(grad2(nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(hess2(nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(target(2,nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(pottarg(nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(gradtarg(nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+      allocate(hesstarg(nsource_max_),STAT = AllocateStatus)
+      IF (AllocateStatus /= 0) 
+     $   STOP "*** Not enough memory ***"
+
+
 c
 
 c   SUNLI: Argument input
