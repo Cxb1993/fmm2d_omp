@@ -1,0 +1,25 @@
+
+
+NSOURCEMAX=100000
+#NSOURCEMAX=1000000
+NSOURCEMIN=NSOURCEMAX/1000
+OUTDIR="test/output"
+NLOOP=10
+CHUNKSIZE=100
+#echo $NSOURCE
+cd ..
+mkdir $OUTDIR
+
+for ((NSOURCE=$NSOURCEMAX; NSOURCE>=$NSOURCEMIN;
+NSOURCE=$NSOURCE/2))
+do
+for ((COUNT=1; COUNT<=$NLOOP; COUNT++ ))
+do
+  cmd="./examples/int2 $NSOURCE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE $CHUNKSIZE"
+  $cmd
+#  echo $cmd
+  cmd="cp fort.13 $OUTDIR/output_${NSOURCE}_${COUNT}"
+  $cmd
+#  echo $cmd
+done
+done
