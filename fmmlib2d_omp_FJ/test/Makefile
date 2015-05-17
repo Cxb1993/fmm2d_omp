@@ -13,6 +13,10 @@ strong: sscale.sh ../examples/int2
 	./sscale.sh
 	$(PY) $(AVG)
 
+weak: wscale.sh ../examples/int2
+	chmod +x wscale.sh
+	./wscale.sh
+	$(PY) $(AVG)
 
 clean: 
 	rm $(OUTDIR)/*
